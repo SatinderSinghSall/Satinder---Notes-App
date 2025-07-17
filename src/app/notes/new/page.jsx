@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Plus, Loader2 } from "lucide-react";
+import { Plus, Loader2, ArrowLeft } from "lucide-react";
 
 export default function NewNotePage() {
   const [title, setTitle] = useState("");
@@ -27,21 +27,39 @@ export default function NewNotePage() {
         onSubmit={createNote}
         className="bg-white rounded-xl shadow-lg p-8 w-full max-w-xl space-y-6"
       >
+        <button
+          type="button"
+          onClick={() => {
+            if (window.history.length > 2) {
+              router.back();
+            } else {
+              router.push("/notes");
+            }
+          }}
+          className="flex items-center gap-2 text-purple-700 hover:text-purple-900 text-sm font-medium transition-colors mb-4"
+        >
+          <ArrowLeft className="w-5 h-5" />
+          <span>Back to Notes</span>
+        </button>
+
         <div className="flex items-center gap-3 mb-4">
           <Plus className="w-8 h-8 text-purple-700" />
           <h1 className="text-3xl font-bold text-gray-900">Create New Note</h1>
         </div>
 
+        <label className="block text-gray-700 mb-2"> Title</label>
         <input
           type="text"
-          placeholder="Title"
+          placeholder="Enter Title..."
           className="border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
+
+        <label className="block text-gray-700 mb-2">Content</label>
         <textarea
-          placeholder="Content"
+          placeholder="Enter Content..."
           className="border rounded-lg p-3 w-full h-40 resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={content}
           onChange={(e) => setContent(e.target.value)}

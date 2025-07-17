@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, Trash2, Save } from "lucide-react";
+import { Loader2, Trash2, Save, ArrowLeft } from "lucide-react";
 
 export default function NotePage({ params }) {
   const { id } = params;
@@ -55,6 +55,21 @@ export default function NotePage({ params }) {
         onSubmit={updateNote}
         className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-xl space-y-6"
       >
+        <button
+          type="button"
+          onClick={() => {
+            if (window.history.length > 2) {
+              router.back();
+            } else {
+              router.push("/notes");
+            }
+          }}
+          className="flex items-center gap-2 text-purple-700 hover:text-purple-900 text-sm font-medium transition-colors"
+        >
+          <ArrowLeft className="w-5 h-5" />
+          <span>Back to Notes</span>
+        </button>
+
         <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">
           ✏️ Edit Note
         </h1>
