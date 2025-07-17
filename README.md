@@ -3,6 +3,7 @@
 ---
 
 App Preview:
+
 <img width="1920" height="1080" alt="Screenshot (774)" src="https://github.com/user-attachments/assets/d72b1b35-0477-4abd-8ad2-9bbb0e8f6cc7" />
 
 ---
