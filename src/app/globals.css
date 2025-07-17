@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@keyframes gradientShiftModern {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-modern {
+  background-size: 300% 300%;
+  animation: gradientShiftModern 8s ease-in-out infinite;
+}
