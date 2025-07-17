@@ -31,7 +31,8 @@ export default function HomePage() {
       </div>
 
       <footer className="absolute bottom-6 text-gray-600 text-sm">
-        Built with ❤️ using Next.js, Neon, Prisma & TailwindCSS
+        Built with ❤️ by <span className="font-semibold">Satinder Singh Sall </span> using Next.js, Neon,
+        Prisma & TailwindCSS
       </footer>
     </div>
   );
