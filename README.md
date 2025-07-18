@@ -2,6 +2,12 @@
 
 ---
 
+App Preview:
+
+<img width="1920" height="1080" alt="Screenshot (774)" src="https://github.com/user-attachments/assets/d72b1b35-0477-4abd-8ad2-9bbb0e8f6cc7" />
+
+---
+
 ## 📝 Note App – Simple, Fast, Full-Stack Notes
 
 **Note App** is a modern, full-stack web application for taking, editing, and organizing notes. Built with **Next.js (App Router)**, it leverages **Neon (serverless PostgreSQL)**, **Prisma ORM**, and **TailwindCSS** to deliver a fast and elegant user experience — all in plain JavaScript.
