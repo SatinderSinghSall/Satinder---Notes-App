@@ -7,6 +7,7 @@ import { Loader2, Trash2, Save, ArrowLeft } from "lucide-react";
 export default function NotePage({ params }) {
   const { id } = params;
   const [note, setNote] = useState(null);
+  const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
@@ -18,6 +19,7 @@ export default function NotePage({ params }) {
       .then((res) => res.json())
       .then((data) => {
         setNote(data);
+        setName(data.name);
         setTitle(data.title);
         setContent(data.content);
       });
@@ -28,7 +30,7 @@ export default function NotePage({ params }) {
     setLoading(true);
     await fetch(`/api/notes/${id}`, {
       method: "PUT",
-      body: JSON.stringify({ title, content }),
+      body: JSON.stringify({ name, title, content }),
     });
     setLoading(false);
     router.push("/notes");
@@ -74,6 +76,15 @@ export default function NotePage({ params }) {
           ✏️ Edit Note
         </h1>
 
+        <label className="block text-gray-700 mb-2">Name</label>
+        <input
+          type="text"
+          className="border rounded-lg p-3 w-full text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <label className="block text-gray-700 mb-2">Title</label>
         <input
           className="border rounded-lg p-3 w-full text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={title}
@@ -82,6 +93,7 @@ export default function NotePage({ params }) {
           placeholder="Note Title"
         />
 
+        <label className="block text-gray-700 mb-2">Content</label>
         <textarea
           className="border rounded-lg p-3 w-full h-40 resize-none text-base focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={content}

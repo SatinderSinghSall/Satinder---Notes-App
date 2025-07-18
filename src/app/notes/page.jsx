@@ -9,7 +9,7 @@ export default async function NotesPage() {
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 p-6 flex flex-col items-center">
       <div className="max-w-2xl w-full">
         <h1 className="text-4xl font-bold text-center mb-6 text-gray-900">
-          📒 Your Notes
+          📒 All Notes
         </h1>
 
         <div className="flex justify-center mb-8">
@@ -37,6 +37,8 @@ export default async function NotesPage() {
                   <h2 className="text-xl font-semibold text-gray-800 mb-1">
                     {note.title}
                   </h2>
+                  <p className="text-gray-600 mb-2">{note.content.slice(0, 100)}...</p>
+                  <p className="text-sm text-gray-500">By {note.name}</p>
                   <p className="text-sm text-gray-500">
                     {new Date(note.createdAt).toLocaleDateString()}
                   </p>

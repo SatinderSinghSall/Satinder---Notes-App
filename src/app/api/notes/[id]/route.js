@@ -7,10 +7,10 @@ export async function GET(req, { params }) {
 }
 
 export async function PUT(req, { params }) {
-  const { title, content } = await req.json();
+  const { name, title, content } = await req.json();
   const note = await prisma.note.update({
     where: { id: params.id },
-    data: { title, content },
+    data: { name, title, content },
   });
   return Response.json(note);
 }

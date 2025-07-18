@@ -9,6 +9,7 @@ datasource db {
 
 model Note {
   id        String   @id @default(uuid())
+  name      String
   title     String
   content   String
   createdAt DateTime @default(now())

@@ -7,6 +7,7 @@ import { Plus, Loader2, ArrowLeft } from "lucide-react";
 export default function NewNotePage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -15,7 +16,7 @@ export default function NewNotePage() {
     setLoading(true);
     await fetch("/api/notes", {
       method: "POST",
-      body: JSON.stringify({ title, content }),
+      body: JSON.stringify({ name, title, content }),
     });
     setLoading(false);
     router.push("/notes");
@@ -46,6 +47,16 @@ export default function NewNotePage() {
           <Plus className="w-8 h-8 text-purple-700" />
           <h1 className="text-3xl font-bold text-gray-900">Create New Note</h1>
         </div>
+
+        <label className="block text-gray-700 mb-2">Name</label>
+        <input
+          type="text"
+          placeholder="Enter Name..."
+          className="border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
 
         <label className="block text-gray-700 mb-2"> Title</label>
         <input
